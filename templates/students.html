@@ -1,0 +1,35 @@
+<html>
+<head>
+    <title>Students</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <h2> All Students </h2>
+    <table border=1>
+            <tr>
+                <th>Name</th>
+                <th>Subject</th>
+                <th>First Grade</th>
+                <th>Second Grade</th>
+                <th>Third Grade</th>
+                <th>Fourth Grade</th>
+                <th>Fifth Grade</th>
+            </tr>
+            {% for i in range(students["name"] |length) %}
+            <tr>
+                <tr>
+                    <td>{{ students["name"][i] }}</td>
+                    <td><a href="/{{students["name"][i]}}/{{students["subject"][i]}}">{{ students["subject"][i] }}</a></td>
+                    <td>{{ students["first_grade"][i] }}</td>
+                    <td>{{ students["second_grade"][i] }}</td>
+                    <td>{{ students["third_grade"][i] }}</td>
+                    <td>{{ students["fourth_grade"][i] }}</td>
+                    <td>{{ students["fifth_grade"][i] }}</td>
+                </tr>
+            </tr>
+            {% endfor %}
+                       
+        
+        </table>
+</body>
+</html>

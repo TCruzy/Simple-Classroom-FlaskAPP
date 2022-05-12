@@ -1,0 +1,40 @@
+<html>
+<head>
+    <title>Scores</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <table border=1>
+        <h2>{{ thesubject }}</h2>
+        <h3>{{ name }}</h3>
+        {% for key, value in result.items() %}
+        <tr>
+            <th>{{ key }}</th>
+            <td>{{ value }}</td>
+        </tr>
+        {% endfor %}
+        <tr>
+            <th>AVG</th>
+            <td class="avg">{{ avg }}</td>
+        </tr>
+        <tr>
+            <th>სულ ჯამში</th>
+            <td class="sum">{{ sum }}</td>
+        </tr>
+        <tr>
+            <th>Min ზღვარი</th>
+            <td class="sum">10.5</td>
+        </tr>
+        <tr>
+            <th>გამოცდაზე დაშვების უფლება</th>
+            {% if 'No' == status %}
+                <td style="color:red;" class="status">{{ status }}</td>
+            {% else %}
+                <td style="color: rgb(30, 153, 5);" class="status">{{ status }}</td>
+            {% endif %}
+        </tr>
+    </table>
+    <a href="/"><button>Go Back To Students</button></a>
+
+</body>
+</html>
